@@ -13,3 +13,24 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require modernizr
+//= require jquery.autosize.min
+//= require placeholder-polyfill.min
+//= require bootstrap-redu
+
+$.cachedScript = function(url) {
+  options = {
+    dataType: "script",
+    cache: true,
+    url: url
+  };
+
+  return $.ajax(options);
+};
+
+$.cachedScript("http://use.typekit.com/lpo4rgu.js").done(function() {
+  try {
+    Typekit.load();
+    $(".typekit-badge").css("left", "0");
+  }catch(e){}
+});

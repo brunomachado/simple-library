@@ -1,8 +1,14 @@
-<h1>Todos os usuários</h1>
-<ul>
-    <%# Itera sobre a lista de usuários e renderiza o partial 'user' para cada instância %>
-	<%= render partial: 'user', :collection => @users %>
-</ul>
-
-<%# Renderiza o partial 'form' e passa @user como argumento para o parâmetro 'user' %>
-<%= render 'form', user: @user %>
+<div class="container">
+  <div class="row">
+    <div class="offset4 span8">
+      <h2>Adicionar usuário</h2>
+      <%# Renderiza o partial 'form' e passa @user como argumento para o parâmetro 'user' %>
+      <%= render 'form', user: @user %>
+      <h2>Usuários</h2>
+      <ul class="list-button">
+          <%# Itera sobre a lista de usuários e renderiza o partial 'user' para cada instância %>
+        <%= render partial: 'user', :collection => @users %>
+      </ul>
+    </div>
+  <div>
+</div>

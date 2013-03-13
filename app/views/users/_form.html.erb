@@ -9,13 +9,36 @@
   - o action do <form> será: /users/:id
   - o method do <form> será: post
   (para a aplicação Rails é um put, mas é melhor abstrair por enquanto). %>
-<%= form_for user, remote: true do |u| %>
-  <%= u.label :name %>
-  <%= u.text_field :name %>
-  <%= u.label :last_name %>
-  <%= u.text_field :last_name %>
-  <%= u.label :email %>
-  <%= u.text_field :email %>
 
-  <%= u.submit %>
+<%= form_for user, remote: true, html: {class: 'form-horizontal'} do |u| %>
+  <div class="control-group row">
+    <div class="control-label span2">
+      <%= u.label :name, 'Nome' %>
+    </div>
+    <div class="controls span6">
+      <%= u.text_field :name, placeholder: 'Digite seu nome' %>
+    </div>
+  </div>
+
+  <div class="control-group row">
+    <div class="control-label span2">
+      <%= u.label :last_name, "Sobrenome" %>
+    </div>
+    <div class="controls span6">
+      <%= u.text_field :last_name, placeholder: 'Digite seu sobrenome' %>
+    </div>
+  </div>
+
+  <div class="control-group row">
+    <div class="control-label span2">
+      <%= u.label :email %>
+    </div>
+    <div class="controls span6">
+      <%= u.text_field :email, placeholder: 'Digite seu email' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= u.submit 'Criar usuário', class: 'button-primary pull-right' %>
+  </div>
 <% end %>
